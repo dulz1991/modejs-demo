@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>html5 test page</title>
+	<meta charset="UTF-8">
+    
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/dialog.css" />
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/dialog.js"></script>
+	
+	<script>
+	/*
+		$.sayhello(111);
+		
+		$(".dialog").dialog({
+			timeToHide:2000,
+			bgColor:"#95b9b6",
+			spinner:"spinner3" //spinner1--spinner7 
+		});
+	*/	
+		function showDialog(type) {
+			$(".dialog").dialog({
+				type:type,
+				width:'320px',
+				height:'200px'
+			});
+		}
+		
+	</script>
+	
+  </head>
+  <body>
+   
+	<div id="main">
+	
+		 <button class="btn btn-primary" onclick="showDialog(0)" type="button">General Dialog</button>
+		 <button class="btn btn-primary" onclick="showDialog(1)" type="button">FadeIn Dialog</button>
+		 <button class="btn btn-primary" onclick="showDialog(2)" type="button">Slide Dialog</button>
+		 <button class="btn btn-primary" onclick="showDialog(3)" type="button">FlyIn Top Dialog</button>
+		 <button class="btn btn-primary" onclick="showDialog(7)" type="button">Roll Dialog</button>
+		 <button class="btn btn-primary" onclick="showDialog(8)" type="button">Roll Left Dialog</button>
+		
+		<div class="pop-dialog"></div>
+		
+	</div>
+   
+  </body>
+</html>

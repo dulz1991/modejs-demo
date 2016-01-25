@@ -1,0 +1,91 @@
+body{background-color:rgba(240,240,240,1)}
+#main{margin:auto auto;width:80%; background-color:#fff;padding:10px;margin-top:10px;}
+/***********************general dialog*******************/
+.pop-dialog{ /*黑色遮罩层*/
+	background: #000;
+    filter: alpha(opacity=50); /* IE的透明度 */
+    opacity: 0.5;  /* 透明度 */
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 100; /* 此处的图层要大于页面 */
+    display:none;
+}
+ 
+.dialog{ /*弹出框*/
+	margin:auto auto; 
+	border:10px solid #fafafa;
+	border-radius:4px;
+	position:relative;
+	top:15%;
+	text-align:center;
+	color:#fff;
+	display:none;
+	background:rgba(0,127,255,0.7);
+}
+
+.closeDialog{
+	padding:4px 8px;
+	color:#ff0000;
+	background:rgba(255,255,86,0.8);
+	border-radius:30px;
+	position:relative;
+	width:30px;
+	top:-10%;
+	left:99%;
+	font-weight:bold;
+}
+
+.flyInTopDialog{
+	display:block;
+	white-space:nowrap;
+	animation-name:move2dTop; /*动画名*/
+	animation-duration:1s; /*动画周期时间*/
+	animation-iteration-count:1; /*动画循环次数*/
+}
+
+.rollDialog{
+	display:block;
+	white-space:nowrap;
+	animation-name:rotate; /*动画名*/
+	animation-duration:1s; /*动画周期时间*/
+	animation-iteration-count:1; /*动画循环次数*/
+}
+
+.rollLeftDialog{
+	display:block;
+	white-space:nowrap;
+	animation-name:rotate3dLeft; /*动画名*/
+	animation-duration:1s; /*动画周期时间*/
+	animation-iteration-count:1; /*动画循环次数*/
+}
+
+@keyframes move2dTop {/*top飞入*/ 
+	0%   {top:0px;}
+	50%  {top:30%;}
+	100% {top:15%;}
+}
+@keyframes move2dLeft {/*左边飞入*/ 
+	0%   {left:-50%;}
+	90%	{left:5%}
+	100% {left:0%;}
+}
+@keyframes rotate{  /*原地旋转*/ 
+	100%{   
+		-webkit-transform:rotateX(360deg) rotateY(360deg)  rotateZ(360deg);   
+	} 
+}
+@keyframes rotate3dLeft{ /*左边飞入旋转*/ 
+	0%   {left:-50%;}
+	50%	{left:0%}
+	100%{   
+		-webkit-transform:rotateX(360deg) rotateY(360deg)  rotateZ(360deg);   
+	} 
+}
+
+
+
+

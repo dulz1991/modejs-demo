@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content[0].title %></title>
+    
+  </head>
+  <body>
+   
+	<div id="main">
+	
+	<div>
+		<h4><%= content[0].title %> &nbsp; <small><a href="edit?id=<%= content[0].id %>">编辑</a></small></h4>
+		
+		<div class="content">
+			<%- content[0].content %>
+		</div>
+	</div>
+	
+  </div>
+   
+  <style>
+	body{background-color:rgba(240,240,240,0.6)}
+	#main{border:1px solid #fff;width:80%;margin:auto auto;background-color:#fff;padding:10px;}
+	.content{border:1px solid #eee;padding:10px;}
+	#footer{margin:auto auto;text-align:center;}
+  <style>
+  </body>
+</html>

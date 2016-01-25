@@ -1,0 +1,65 @@
+/*********************button style***********************/
+.btn{color: #666;
+  background-color: #EEE;
+  border-color: #EEE;
+  font-weight: 300;
+  font-size: 16px;
+  font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  text-decoration: none;
+  text-align: center;
+  line-height: 40px;
+  height: 40px;
+  padding: 0 40px;
+  margin: 0;
+  display: inline-block;
+  appearance: none;
+  cursor: pointer;
+  border: none;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition-property: all;
+          transition-property: all;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;}
+.btn-primary{background: #2798eb;color:#fff;}
+.btn-warning{background-color: #FEAE1B;border-color: #FEAE1B;color: #FFF; }
+.btn-error{background-color: #FF4351;border-color: #FF4351;color: #FFF; }
+.btn-rounder{border-radius:5px;}
+.btn:hover{background-color: #f6f6f6;text-decoration: none;outline: none;}
+.btn-primary:hover{ background-color: #4cb0f9;border-color: #4cb0f9;color: #FFF; }
+.btn-warning:hover{background-color: #fec04e;border-color: #fec04e;color: #FFF;}
+.btn-error:hover{ background-color: #ff7680;border-color: #ff7680;color: #FFF; }
+
+/*********************input style***********************/
+.input{}
+.input-text{border:1px solid #ccc;line-height:32px;width:400px;font-size:16px;}
+.input-rounder{border-radius:4px;}
+
+/*********************form style***********************/
+.form-group{margin:10px 0;}
+.form-group span{font:22px Georgia, "Times New Roman", Times, serif; text-decoration:none;}
+
+/*********************other style***********************/
+.error{color:#ff0000;}
+
+/*********************table*****************************/
+table{background:rgba(0,0,0,0)}
+table tr td{background:rgba(0,0,0,0);text-align:right; vertical-align:top;font-size:16px;}
+table tr td:nth-child(3){text-align:left; vertical-align:top;font-size:16px;}
+table tr td span{font-weight:bold;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>create</title>
+    <!--<link rel='stylesheet' href='/stylesheets/style.css' />-->
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine&amp;v1" />
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" />
+	<link rel="stylesheet" type="text/css" href="../stylesheets/style.css" />
+	<link rel="stylesheet" type="text/css" href="../stylesheets/nodejs.css" />
+	<link href="../javascripts/ueditor/themes/default/ueditor.css" rel="stylesheet">
+	
+	<script src="../javascripts/jquery.min.js"></script>
+	<script src="../javascripts/ueditor/editor_config.js"></script>
+	<script src="../javascripts/ueditor/_examples/editor_api.js"></script>
+	
+	<script>
+	$(document).ready(function(){
+		$('#menubar ul li').eq(1).addClass('current');
+		
+		$('.submit').click(function(){
+			var title = $('.title').val();
+			var content = editor_a.getContent();
+			if (title=='' || title==undefined) {
+				$('.error').text('Blog title can not be empty!')
+				return false;
+			} 
+			if (content=='' || content==undefined) {
+				$('.error').text('Blog content can not be empty!')
+				return false;
+			} 
+		});
+	});
+	</script>
+  </head>
+  <body>
+   
+	<div id="main">
+	
+    <% include header.html %>
+	
+    <div id="site_content" style="padding:10px;">
+		<form action="doCreate" method="post" class="form">
+			<div class="form-group">
+				<input type="hidden" name="id" value="<%= id %>" />
+				<span>title: </span> <input type="text" value="<%= title %>" name="title" class="input-text input-rounder title" />
+				<span class="error"><span>
+			</div>
+			<div class="form-group">
+				<textarea id="myEditor" name="content" style="width:100%; margin:0;"><%= content %></textarea>
+					<script type="text/javascript">
+						var editor_a = new baidu.editor.ui.Editor();
+						editor_a.render('myEditor');
+					</script>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Submit" class="btn btn-primary btn-rounder submit" />
+			</div>
+		</form>
+	  
+    </div>
+	
+	<% include footer.html %>
+
+  </div>
+   
+</body>
+</html>

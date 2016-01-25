@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>examples</title>
+    <!--<link rel='stylesheet' href='/stylesheets/style.css' />-->
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine&amp;v1" />
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" />
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+	<link rel="stylesheet" type="text/css" href="stylesheets/nodejs.css" />
+	
+	<script src="../javascripts/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('#menubar ul li').eq(2).addClass('current');
+		
+		$('.demo').hover(function(){
+			$(this).css('background-color','rgba(250,250,250,0.8)');
+		},function(){
+			$(this).css('background-color','rgba(240,240,240,0)');
+		});
+	});
+	</script>
+	<style>
+		.demo{margin-bottom:20px;padding:5px}
+		.sidebar div{margin:5px 0;}
+		.createBtn{margin-bottom:20px;margin-left:-5px;}
+	</style>
+  </head>
+  <body>
+   
+	<div id="main">
+    <% include layout/header.html %>
+    
+	<div id="site_content">
+	
+		<div id="sidebar_container">
+			<a href="examples/exampleUpload" class="btn btn-primary createBtn">Create New Example</a>
+			<img class="paperclip" src="../images/paperclip.png" alt="paperclip" />
+			<div class="sidebar">
+				<h3>Recent Update</h3>
+				<div><a href="examples/example?path=example/example0/index" target="_blank"><h4>0. html5 test url</h4></a></div>
+				<% i=0 %>
+				<% updateList.forEach(function(item){ %>
+				<% i++ %>
+					<div><a href="examples/example?path=<%= item.url %>" target="_blank"><h4><%= i %>. <%= item.title %></h4></a></div>
+				<% }) %>
+				<!--
+				<div><a href="examples/example?path=example/example1/cropper-master/demo/index" target="_blank"><h4>1. 立体图片移动效果</h4></a></div>
+				<div><a href="examples/example?path=example/example2/stereopicture/demo" target="_blank"><h4>2. 基于bootstrap：cropper-master</h4></a></div>
+				<div><a href="examples/example?path=example/example3/calendar/demos/index" target="_blank"><h4>3. jQuery FullCalendar日历插件</h4></a></div>
+				<div><a href="examples/example?path=example/example4/jQuerypubu/index" target="_blank"><h4>4. jQuery实现无限加载瀑布流特效</h4></a></div>
+				-->
+			</div>
+        </div>
+	  
+      <div id="content">
+		<% i=0 %>
+		<% exampleList.forEach(function(item){ %>
+		<% i++ %>
+			<div class="demo">
+				<h2><%= item.title %></h2>
+				<div><%= item.description %></div>
+				<br />
+				<p>
+					<a href="examples/example?path=<%= item.url %>" target="_blank" class="btn btn-primary">在线演示</a> 
+					<a href="examples/download?filepath=public/upload/resources&filename=<%= item.resourcePath %>" class="btn btn-warning">资源下载</a>
+				</p>
+				<div><img src="<%= item.picPath %>" width="100%" /></div>
+				<div></div>
+			</div>
+		<% }) %>
+		
+		<!-- 
+		<div class="demo">
+			<h2>立体图片移动效果</h2>
+			<div>			cropper是一款使用简单且功能强大的图片剪裁jQuery插件。该图片剪裁插件支持图片放大缩小，支持图片旋转，支持触摸屏设备，支持canvas，并且支持跨浏览器使用
+			</div>
+			<br />
+			<p>
+				<a href="examples/example?path=example/example2/stereopicture/demo" target="_blank" class="btn btn-primary">在线演示</a> 
+				<a href="examples/download?filepath=public/download&filename=stereopicture.rar" class="btn btn-warning">资源下载</a>
+			</p>
+			<div><img src="/example/example2/img/e1.jpg" width="100%" /></div>
+			<div></div>
+		</div>
+		-->
+      </div>	  
+	  
+    </div>
+	
+  <% include layout/footer.html %>
+  </div>
+   
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>upload example</title>
+    <!--<link rel='stylesheet' href='/stylesheets/style.css' />-->
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine&amp;v1" />
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" />
+	<link rel="stylesheet" type="text/css" href="../stylesheets/style.css" />
+	<link rel="stylesheet" type="text/css" href="../stylesheets/nodejs.css" />
+	<link href="../javascripts/ueditor/themes/default/ueditor.css" rel="stylesheet">
+	
+	<script src="../javascripts/jquery.min.js"></script>
+	<script src="../javascripts/ueditor/editor_config.js"></script>
+	<script src="../javascripts/ueditor/_examples/editor_api.js"></script>
+	
+	<script>
+	$(document).ready(function(){
+		$('#menubar ul li').eq(2).addClass('current');
+		
+		$('.submit').click(function(){
+			$('.error').text('');
+			var title = $('.title').val();
+			var url = $('.url').val();
+			var description = $('.description').val();
+			var pic = $('.pic').val();
+			var att = $('.att').val();
+			if (title=='' || title==undefined) {
+				$('.error').eq(0).text('Title can not be empty!');
+				return false;
+			} else if (url=='' || url==undefined) {
+				$('.error').eq(1).text('URL can not be empty!');
+				return false;
+			} else if(description=='' || description==undefined) {
+				$('.error').eq(2).text('Description can not be empty!');
+				return false;
+			} else if (pic=='' || pic==undefined) {
+				$('.error').eq(3).text('Please choose a picture!');
+				return false;
+			} else if (att=='' || att==undefined) {
+				$('.error').eq(4).text('Please choose a attachment!');
+				return false;
+			} 
+			return true;
+		});
+	});
+	</script>
+  </head>
+  <body>
+   
+	<div id="main">
+	
+    <% include header.html %>
+	
+    <div id="site_content" style="padding:10px;">
+		<form action="doUpload" method="post" class="form" enctype='multipart/form-data'>
+			<input type="hidden" name="id" value="<%= id %>" />
+			<table>
+				<tr>
+					<td><span>Title: </span></td>
+					<td><input type="text" value="<%= title %>" name="title" class="input-text input-rounder title" /></td>
+					<td><span class="error"></span></td>
+				</tr>
+				<tr>
+					<td><span>URL: </span></td>
+					<td><input type="text" value="<%= url %>" name="url" class="input-text input-rounder url" /></td>
+					<td><span class="error"></span></td>
+				</tr>
+				<tr>
+					<td><span>Description Words: </span></td>
+					<td><textarea id="description" name="description" rows="6" class="input-text input-rounder description"><%= description %></textarea></td>
+					<td><span class="error"></span></td>
+				</tr>
+				<tr>
+					<td><span>Upload Picture: </span></td>
+					<td><input type="file" name="pic" id="pic" class="pic"></input></td>
+					<td><span class="error"></span></td>
+				</tr>
+				<tr>
+					<td><span>attachment: </span></td>
+					<td><input type="file" name="att" id="att" class="att"></input></td>
+					<td><span class="error"></span></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="Submit" class="btn btn-primary btn-rounder submit" /></td>
+					<td><span class="error"></span></td>
+				</tr>
+			</table>
+		</form>
+	  
+    </div>
+	
+	<% include footer.html %>
+
+  </div>
+   
+</body>
+</html>
